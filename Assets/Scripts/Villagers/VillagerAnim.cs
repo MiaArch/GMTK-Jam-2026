@@ -3,6 +3,13 @@ using UnityEngine;
 
 namespace Villagers
 {
+    enum MoveState
+    {
+        Wander,
+        Return, 
+        Idle
+    }
+    
     public class VillagerAnim : MonoBehaviour
     {
         public Animator villageAnimator;
@@ -17,6 +24,8 @@ namespace Villagers
         private Vector2 moveDirection;
         private bool isMoving;
         private static readonly int Speed = Animator.StringToHash("Speed");
+        MoveState state;
+        private Camera _camera;
 
         private void Awake()
         {
@@ -34,22 +43,46 @@ namespace Villagers
 
         private void Start()
         {
+            _camera = Camera.main;
             StartCoroutine(WanderRoutine());
         }
 
         private void FixedUpdate()
         {
-            if (isMoving)
+            switch (state)
             {
-                rb.linearVelocity = moveDirection * moveSpeed;
-                
+                case MoveState.Wander:
+                    rb.linearVelocity = moveDirection * moveSpeed;
+                    break;
+
+                case MoveState.Return:
+
+                    Vector2 target = GetNearestPointOnScreen();
+                    Vector2 dir = (target - rb.position).normalized;
+
+                    rb.linearVelocity = dir * moveSpeed;
+
+                    if (Vector2.Distance(rb.position, target) < 0.2f)
+                    {
+                        state = MoveState.Idle;
+                    }
+
+                    break;
+                case MoveState.Idle:
+                    rb.linearVelocity = Vector2.zero;
+                    break;
             }
-            else
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
-            
             villageAnimator.SetFloat(Speed, rb.linearVelocity.magnitude);
+        }
+        
+        Vector2 GetNearestPointOnScreen()
+        {
+            Vector3 vp = _camera.WorldToViewportPoint(transform.position);
+
+            vp.x = Mathf.Clamp(vp.x, 0.05f, 0.95f);
+            vp.y = Mathf.Clamp(vp.y, 0.05f, 0.95f);
+
+            return _camera.ViewportToWorldPoint(vp);
         }
 
         private IEnumerator WanderRoutine()
@@ -57,7 +90,7 @@ namespace Villagers
             while (true)
             {
                 moveDirection = Random.insideUnitCircle.normalized;
-                isMoving = true;
+                state = MoveState.Wander;
                 if (moveDirection.x < 0)
                 {
                     SpriteRenderer.flipX = true;
@@ -66,11 +99,31 @@ namespace Villagers
 
                 yield return new WaitForSeconds(Random.Range(moveTimeRange.x, moveTimeRange.y));
 
-                isMoving = false;
+                
                 SpriteRenderer.flipX = false;
                 
-                yield return new WaitForSeconds(Random.Range(idleTimeRange.x, idleTimeRange.y));
+                if (!IsVisible())
+                {
+                    state = MoveState.Return;
+
+                    yield return new WaitUntil(() => state != MoveState.Return);
+                }
+                else
+                {
+                    state = MoveState.Idle;
+                    yield return new WaitForSeconds(Random.Range(idleTimeRange.x, idleTimeRange.y));
+                }
+                
+                
             }
+        }
+
+        private bool IsVisible()
+        {
+            Vector3 viewport = _camera!.WorldToViewportPoint(transform.position);
+
+            return viewport.x is > 0.15f and < 0.85f &&
+                   viewport.y is > 0.15f and < 0.85f;
         }
     }
 }
