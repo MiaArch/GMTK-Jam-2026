@@ -15,5 +15,5 @@ MonoBehaviour:
   title: Test Decision #1
   description: This is a test decision
   effects:
-  - {fileID: 11400000, guid: 5d2cfff73c565ba40a0cc4f58c7f2a43, type: 2}
+  - {fileID: 11400000, guid: 1921e16a4ef4a114a843ad1237a6ffe8, type: 2}
   - {fileID: 11400000, guid: d1238865ffc59234f8c3ef3060c24570, type: 2}

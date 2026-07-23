@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
-  m_Name: Test Decision #2
+  m_Script: {fileID: 11500000, guid: e8f4e9df7ac8475aa02837a2b748f9c5, type: 3}
+  m_Name: Gain 20 Food
   m_EditorClassIdentifier: 
-  title: Test Decision #2
-  description: This is a test decision
-  effects:
-  - {fileID: 11400000, guid: 3e2a2576d9ca7244e939388125a1042f, type: 2}
+  EffectDescription: +20 Food
+  isPositive: 1
+  DecisionEffectType: 2
+  amount: 20

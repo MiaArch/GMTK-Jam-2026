@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351463ff934d4f429bcb13c8192d7f35, type: 3}
   m_Name: Gain 20 Population
   m_EditorClassIdentifier: 
-  EffectDescription: + 20 Population
+  EffectDescription: + 20 Villagers
   isPositive: 1
   DecisionEffectType: 0
   amount: 20

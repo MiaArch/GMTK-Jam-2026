@@ -13,7 +13,6 @@
         public void Tick(float deltaTime)
         {
             elapsed += deltaTime;
-            Debug.Log(elapsed);
         }
 
         public void Reset()

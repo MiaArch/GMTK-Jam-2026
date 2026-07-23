@@ -49,21 +49,49 @@ namespace Resource
         public void AddFood(int amount)
         {
             foodCount = Mathf.Min(foodCount + amount, 1000);
+            UpdateUI();
         }
 
         public void RemoveFood(int amount)
         {
             foodCount = Mathf.Max(0, foodCount - amount);
+            UpdateUI();
+        }
+        
+        public void AddWood(int amount)
+        {
+            buildingMaterialCount = Mathf.Min(buildingMaterialCount + amount, 1000);
+            UpdateUI();
+        }
+
+        public void RemoveWood(int amount)
+        {
+            buildingMaterialCount = Mathf.Max(0, buildingMaterialCount - amount);
+            UpdateUI();
         }
 
         public void AddGold(int amount)
         {
             goldCount = Mathf.Min(goldCount + amount, 1000);
+            UpdateUI();
         }
 
         public void RemoveGold(int amount)
         {
             goldCount = Mathf.Max(0, goldCount - amount);
+            UpdateUI();
+        }
+        
+        public void AddEmotion(int amount)
+        {
+            emotionCount = Mathf.Min(emotionCount + amount, 1000);
+            UpdateUI();
+        }
+
+        public void RemoveEmotion(int amount)
+        {
+            emotionCount = Mathf.Max(0, emotionCount - amount);
+            UpdateUI();
         }
     }
 }

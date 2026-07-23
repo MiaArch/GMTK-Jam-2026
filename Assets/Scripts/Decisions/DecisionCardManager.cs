@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Resource;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -24,6 +25,7 @@ namespace Decisions
 
         public void ShowEvent(DecisionEvent decisionEvent)
         {
+            cardContainer.gameObject.SetActive(true);
             eventTitle.text = decisionEvent.title;
 
             foreach (DecisionData choice in decisionEvent.choices)
@@ -39,6 +41,7 @@ namespace Decisions
         {
             foreach (DecisionEffect effect in choice.effects)
             {
+                Debug.Log(effect.EffectDescription);
                 effect.Execute();
             }
 
@@ -54,6 +57,8 @@ namespace Decisions
 
             activeCards.Clear();
             eventTimer.Reset();
+            cardContainer.gameObject.SetActive(false);
+            eventTitle.text = "";
         }
     }
 }
