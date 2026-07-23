@@ -10,3 +10,6 @@ Architecture:
 - DecisionData: Data fed into the Decision Cards
 - DecisionEvent: Holds the event scenario and the related decisions
 - DecisionEffect: Used as basis to create effects such as GainCluesEffect
+
+Effects:
+- Can impact food, building materials, villagers, clues and happiness (clues are largely hidden)

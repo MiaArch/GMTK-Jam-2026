@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics.Geometry;
 using UnityEngine;
 using Utils;
+using Random = UnityEngine.Random;
 
 namespace Villagers
 {
@@ -9,28 +12,37 @@ namespace Villagers
     {
         [SerializeField] ObjectPool pool;
         [SerializeField] Transform[] spawnPoints;
+        [SerializeField] private TMP_Text populationText;
 
         private List<GameObject> activeVillagers = new List<GameObject>();
 
         public int population;
         public int displayPopulation; 
         [SerializeField] private int maxDisplayedVillagers = 20; // Could be a setting in the menu so we don't see too many on screen
-        
+
+        public void Start()
+        {
+            populationText.text = population.ToString();
+        }
 
         public void AddPopulation(int amount)
         {
-            population += amount;
+            // Capping population at 1000 because why not, I said so
+            population = Mathf.Min(1000, population + amount);
+            populationText.text = population.ToString();
             UpdateDisplayPopulation();
         }
 
         public void RemovePopulation(int amount)
         {
             population = Mathf.Max(0, population - amount);
+            populationText.text = population.ToString();
             UpdateDisplayPopulation();
         }
 
         private void UpdateDisplayPopulation()
         {
+            
             displayPopulation = Mathf.Min(maxDisplayedVillagers, population);
         }
 
