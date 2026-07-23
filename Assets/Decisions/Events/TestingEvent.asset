@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: TestingEvent
+  m_EditorClassIdentifier: 
+  title: Test Event
+  description: A test event
+  choices:
+  - {fileID: 11400000, guid: 2a4fd7a1c62c7694780e463c104b533a, type: 2}
+  - {fileID: 11400000, guid: ef2339c0101d4e44eaa8c2f4f6b4d867, type: 2}
+  - {fileID: 11400000, guid: 4ee812157aa9a024b92deabc08a59f6c, type: 2}

@@ -1,0 +1,12 @@
+﻿Decisions:
+- An event occurs and two/three decisions are given, each with different effects
+- Cards are spawned with the given decisions
+- Players can select a card and an effect will be applied
+
+
+Architecture:
+- DecisionCardManager: Controls cards and executes effects when a card is selected
+- DecisionCard: Acts as storage of data such as title, text and effect. Players interact with this
+- DecisionData: Data fed into the Decision Cards
+- DecisionEvent: Holds the event scenario and the related decisions
+- DecisionEffect: Used as basis to create effects such as GainCluesEffect
