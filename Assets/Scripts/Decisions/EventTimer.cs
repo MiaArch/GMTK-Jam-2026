@@ -10,10 +10,6 @@ namespace Decisions
         private bool isInEvent;
         [SerializeField] private List<DecisionEvent> events;
         private int totalEventsOccurred;
-        
-        public EventTimer(float duration) : base(duration)
-        {
-        }
 
         public void Update()
         {

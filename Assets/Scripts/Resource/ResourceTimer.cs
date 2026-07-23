@@ -1,16 +1,16 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Utils;
+using Villagers;
 
-namespace Villagers
+namespace Resource
 {
-    public class VillagerTimer: Timer
+    public class ResourceTimer: Timer
     {
         public void Update()
         {
             if (Finished)
             {
-                VillagerManager.Instance.RemovePopulation(1);
+                ResourceManager.Instance.ConsumeFood();
                 Reset();
             }
             Tick(Time.deltaTime);

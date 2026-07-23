@@ -13,7 +13,7 @@ namespace Decisions
         [SerializeField] private Transform cardContainer;
         [SerializeField] private DecisionCard cardPrefab;
         [SerializeField] private EventTimer eventTimer;
-        [SerializeField] private DecisionEvent testingEvent;
+        // [SerializeField] private DecisionEvent testingEvent;
 
         private readonly List<DecisionCard> activeCards = new();
 

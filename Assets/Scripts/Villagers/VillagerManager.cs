@@ -22,14 +22,18 @@ namespace Villagers
 
         public void Start()
         {
-            populationText.text = population.ToString();
+            if (population == 1000) populationText.text = population + " [MAX]";
+            else populationText.text = population.ToString();
         }
 
         public void AddPopulation(int amount)
         {
             // Capping population at 1000 because why not, I said so
             population = Mathf.Min(1000, population + amount);
-            populationText.text = population.ToString();
+            
+            if (population == 1000) populationText.text = population + " [MAX]";
+            else populationText.text = population.ToString();
+            
             UpdateDisplayPopulation();
         }
 
