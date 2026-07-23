@@ -12,19 +12,18 @@ namespace Decisions
 
         [SerializeField] private Transform cardContainer;
         [SerializeField] private DecisionCard cardPrefab;
+        [SerializeField] private EventTimer eventTimer;
         [SerializeField] private DecisionEvent testingEvent;
 
         private readonly List<DecisionCard> activeCards = new();
 
-        public void Start()
-        {
-            ShowEvent(testingEvent);
-        }
+        // public void Start()
+        // {
+        //     ShowEvent(testingEvent);
+        // }
 
         public void ShowEvent(DecisionEvent decisionEvent)
         {
-            ClearCards();
-
             eventTitle.text = decisionEvent.title;
 
             foreach (DecisionData choice in decisionEvent.choices)
@@ -54,6 +53,7 @@ namespace Decisions
             }
 
             activeCards.Clear();
+            eventTimer.Reset();
         }
     }
 }

@@ -2,10 +2,10 @@
 {
     using UnityEngine;
 
-    public class Timer
+    public abstract class Timer: MonoBehaviour
     {
-        float duration;
-        float elapsed;
+        [SerializeField] private float duration;
+        private float elapsed;
 
         public bool Finished => elapsed >= duration;
         public float Normalised => Mathf.Clamp01(elapsed / duration);
@@ -18,11 +18,17 @@
         public void Tick(float deltaTime)
         {
             elapsed += deltaTime;
+            Debug.Log(elapsed);
         }
 
         public void Reset()
         {
             elapsed = 0;
+        }
+
+        public void ChangeDuration(float newDuration)
+        {
+            duration = newDuration;
         }
     }
 }
