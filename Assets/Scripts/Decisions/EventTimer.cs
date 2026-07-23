@@ -7,23 +7,37 @@ namespace Decisions
 {
     public class EventTimer: Timer
     {
-        private bool isInEvent;
+        public bool isInEvent;
         [SerializeField] private List<DecisionEvent> events;
         private int totalEventsOccurred;
 
+        public void Start()
+        {
+            elapsed = 15f; //TODO: REMOVE MAGIC NUMBER WITH ACTUAL LOGIC
+        }
+
         public void Update()
         {
-            if (Finished && !isInEvent)
+            switch (Finished)
             {
-                isInEvent = true;
-                DecisionCardManager.Instance.ShowEvent(events[totalEventsOccurred]);
-                totalEventsOccurred++;
-                //TODO: START AN EVENT, PAUSE TIMER UNTIL EVENT IS OVER, RESUME TIMER
+                case true when !isInEvent:
+                {
+                    isInEvent = true;
+                    if (totalEventsOccurred == events.Count) return;
+                    DecisionCardManager.Instance.ShowEvent(events[totalEventsOccurred]);
+                    totalEventsOccurred++;
+                    break;
+                }
+                case false:
+                    Tick(Time.deltaTime);
+                    break;
             }
-            else if (!Finished)
-            {
-                Tick(Time.deltaTime);
-            }
+        }
+
+        public override void Reset()
+        {
+            elapsed = 0;
+            isInEvent = false;
         }
     }
 }

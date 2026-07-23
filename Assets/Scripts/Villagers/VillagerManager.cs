@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics.Geometry;
 using UnityEngine;
 using Utils;
 using Random = UnityEngine.Random;

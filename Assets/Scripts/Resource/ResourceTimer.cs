@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Utils;
-using Villagers;
 
 namespace Resource
 {

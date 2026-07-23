@@ -5,7 +5,7 @@
     public abstract class Timer: MonoBehaviour
     {
         [SerializeField] private float duration;
-        private float elapsed;
+        protected float elapsed;
 
         public bool Finished => elapsed >= duration;
         public float Normalised => Mathf.Clamp01(elapsed / duration);
@@ -15,7 +15,7 @@
             elapsed += deltaTime;
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             elapsed = 0;
         }

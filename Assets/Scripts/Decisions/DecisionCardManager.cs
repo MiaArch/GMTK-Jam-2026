@@ -1,6 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using Resource;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -25,7 +24,7 @@ namespace Decisions
 
         public void ShowEvent(DecisionEvent decisionEvent)
         {
-            cardContainer.gameObject.SetActive(true);
+            cardContainer.gameObject.SetActive(true); 
             eventTitle.text = decisionEvent.title;
 
             foreach (DecisionData choice in decisionEvent.choices)

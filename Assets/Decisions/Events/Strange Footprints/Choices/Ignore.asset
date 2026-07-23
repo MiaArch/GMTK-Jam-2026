@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
-  m_Name: Test Decision #1
+  m_Name: Ignore
   m_EditorClassIdentifier: 
-  title: Test Decision #1
-  description: This is a test decision
+  title: Ignore
+  description: Sometimes the best thing is to do nothing
   effects:
-  - {fileID: 11400000, guid: 1921e16a4ef4a114a843ad1237a6ffe8, type: 2}
-  - {fileID: 11400000, guid: d1238865ffc59234f8c3ef3060c24570, type: 2}
+  - {fileID: 11400000, guid: a17bf5622c4b99b4683eedab57cedeca, type: 2}

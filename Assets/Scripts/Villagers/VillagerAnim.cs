@@ -113,9 +113,8 @@ namespace Villagers
                     state = MoveState.Idle;
                     yield return new WaitForSeconds(Random.Range(idleTimeRange.x, idleTimeRange.y));
                 }
-                
-                
             }
+            // ReSharper disable once IteratorNeverReturns
         }
 
         private bool IsVisible()

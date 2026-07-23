@@ -1,8 +1,7 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Utils;
-using Math = Unity.Mathematics.Geometry.Math;
+
 
 namespace Resource
 {
