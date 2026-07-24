@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9fa4af3e892930d4283e39bef55e0dd5
+guid: 41f117ef93008e24db82261926f98c67
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4007121022853086434
-    second: ResourceUISprite_0
+      213: -3049930392821461331
+    second: PauseButtonUISprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -152,23 +152,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ResourceUISprite_0
+      name: PauseButtonUISprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 7, z: 5, w: 6}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1387dc09a8d368c0800000000000000
-      internalID: -4007121022853086434
+      spriteID: dae853a87787ca5d0800000000000000
+      internalID: -3049930392821461331
       vertices: []
       indices: 
       edges: []
@@ -177,7 +177,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 941ed6b6e39ae4e4f8beb77fe2071f15
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -187,7 +187,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ResourceUISprite_0: -4007121022853086434
+      PauseButtonUISprite_0: -3049930392821461331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

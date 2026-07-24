@@ -11,6 +11,7 @@ namespace Resource
         private int foodCount = 100;
         private int goldCount = 100;
         private int emotionCount = 100;
+        private int cluesCount = 0;
 
         [SerializeField] private TMP_Text buildingMaterialText;
         [SerializeField] private TMP_Text foodText;
@@ -91,6 +92,30 @@ namespace Resource
         {
             emotionCount = Mathf.Max(0, emotionCount - amount);
             UpdateUI();
+        }
+
+        public void AddClue(int amount)
+        {
+            cluesCount += amount;
+        }
+
+        public int GetAmount(ResourceType resource)
+        {
+            switch (resource)
+            {
+                case ResourceType.Food:
+                    return foodCount;
+                case ResourceType.Wood:
+                    return buildingMaterialCount;
+                case ResourceType.Gold:
+                    return goldCount;
+                case ResourceType.Emotion:
+                    return emotionCount;
+                case ResourceType.Clues:
+                    return cluesCount;
+                default:
+                    return 0;
+            }
         }
     }
 }

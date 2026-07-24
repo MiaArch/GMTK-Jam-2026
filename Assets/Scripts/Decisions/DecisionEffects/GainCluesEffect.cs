@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Resource;
+using UnityEngine;
 
 namespace Decisions.DecisionEffects
 {
@@ -9,7 +10,7 @@ namespace Decisions.DecisionEffects
 
         public override void Execute()
         {
-            //TODO: 
+            ResourceManager.Instance.AddClue(amount);
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 488c278c6b1c5ab46b5867742d870389
+guid: 1bd8901cf9b71644fbc4b924507f3d27
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: WheatIcon
+  - name: PauseButtonUI
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 19
+      width: 16
       height: 16
-    spriteID: 322bbe1647f3b5949a0702eed31e49b1
+    spriteID: 482bf246483035049ad6b6175a85c565
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,25 +148,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2008792736
+      value0: 768488874
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: WheatIcon
+    name: PauseButtonUI
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: WheatIcon
+    - name: PauseButtonUI
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 19
+        width: 16
         height: 16
-      spriteId: 322bbe1647f3b5949a0702eed31e49b1
+      spriteId: 482bf246483035049ad6b6175a85c565
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -185,5 +185,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 19, y: 16}
+  canvasSize: {x: 16, y: 16}
   previousTextureSize: {x: 32, y: 32}
