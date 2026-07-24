@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Dialogue
 {
@@ -10,10 +11,12 @@ namespace Dialogue
         [Header("UI")]
         public GameObject dialoguePanel;
         public TMP_Text dialogueText;
+        public GameObject continueButton;
 
         [Header("Typewriter")]
         [TextArea]
-        public string dialogue;
+        public List<String> dialogueLines;
+        private int currentLine = 0;
         private bool isTyping;
 
         public float typingSpeed = 0.04f;
@@ -23,6 +26,7 @@ namespace Dialogue
         void Start()
         {
             dialoguePanel.SetActive(false);
+            continueButton.SetActive(false);
         }
         
         void Update()
@@ -32,23 +36,41 @@ namespace Dialogue
                 if (isTyping)
                 {
                     StopCoroutine(typingCoroutine);
-                    dialogueText.text = dialogue;
+                    dialogueText.text = dialogueLines[currentLine];
                     isTyping = false;
+                    continueButton.SetActive(true);
+                }
+                else
+                {
+                    ContinueDialogue();
                 }
             }
         }
 
-        public void ShowDialogue(string text)
+        public void ShowDialogue(List<string> text)
         {
             DialogueManager.Instance.isDiaglogueActive = true;
             dialoguePanel.SetActive(true);
             
-            dialogue = text;
+            dialogueLines = text;
 
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
 
             typingCoroutine = StartCoroutine(TypeText());
+        }
+
+        public void ContinueDialogue()
+        {
+            currentLine++;
+            if (currentLine >= dialogueLines.Count)
+            {
+                HideDialogue();
+            }
+            else
+            {
+                typingCoroutine = StartCoroutine(TypeText());
+            }
         }
 
         public void HideDialogue()
@@ -65,12 +87,12 @@ namespace Dialogue
             isTyping = true;
             dialogueText.text = "";
 
-            foreach (char letter in dialogue)
+            foreach (char letter in dialogueLines[currentLine])
             {
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
-
+            continueButton.SetActive(true);
             isTyping = false;
         }
     }

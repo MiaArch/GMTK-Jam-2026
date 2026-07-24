@@ -1,5 +1,5 @@
 ﻿using System;
-using UnityEngine;
+using System.Collections.Generic;
 using Utils;
 
 namespace Dialogue
@@ -15,10 +15,17 @@ namespace Dialogue
             
         }
 
-        public void AddDialogue(String dialogue)
+        public void AddDialogue(List<String> dialogue)
         {
             dialogueUI.ShowDialogue(dialogue
             );
+        }
+
+        public void AddDialogue(String dialogue)
+        {
+            List<String> dialogueList = new List<String>();
+            dialogueList.Add(dialogue);
+            dialogueUI.ShowDialogue(dialogueList);
         }
     }
 }

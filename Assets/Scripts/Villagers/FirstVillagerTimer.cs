@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Dialogue;
 using UnityEngine;
 using Utils;
@@ -9,7 +10,7 @@ namespace Villagers
     {
         private bool hasHappened = false;
         [TextArea]
-        [SerializeField] private String firstDialogue;
+        [SerializeField] private string firstDialogue;
         public void Update()
         {
             if (Finished && !hasHappened)

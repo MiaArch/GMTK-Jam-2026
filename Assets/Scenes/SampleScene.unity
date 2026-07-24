@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5784977, g: 0.77370787, b: 0.9811321, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 897600698}
         m_TargetAssemblyTypeName: Dialogue.DialogueUI, Assembly-CSharp
-        m_MethodName: HideDialogue
+        m_MethodName: ContinueDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33388218, g: 0.34766906, b: 0.38679248, a: 1}
+  m_Color: {r: 0.33365968, g: 0.3623176, b: 0.4339623, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: End Dialogue
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47acac2c7a0f23140ad761445f09ff9e, type: 2}
   m_sharedMaterial: {fileID: -5938153330301901923, guid: 47acac2c7a0f23140ad761445f09ff9e, type: 2}
@@ -495,8 +495,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1852,7 +1852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1097831671}
   dialogueText: {fileID: 1284446168}
-  dialogue: 
+  continueButton: {fileID: 20933291}
+  dialogueLines: []
   typingSpeed: 0.04
 --- !u!114 &897600699
 MonoBehaviour:
@@ -4376,7 +4377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -98}
+  m_AnchoredPosition: {x: 0, y: -98}
   m_SizeDelta: {x: -289.7606, y: -310.1698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1821523521

@@ -23,7 +23,6 @@ namespace Villagers
             if (Finished)
             {
                 int populationChange = CalculatePopulationChange();
-                Debug.Log(populationChange);
                 if (populationChange > 0)
                 {
                     populationChangeText.color = new Color(0, 50, 0);
@@ -67,7 +66,6 @@ namespace Villagers
             
             if (emotionCount >= emotionRequirement * 2.25) score += 0.1f;
             if (goldCount >= goldRequirement * 2) score += 0.1f;
-            Debug.Log("Score" + score);
             
             float growthRate = (score - 0.6f) * 0.06f;
             
