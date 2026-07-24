@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Resource;
+using UnityEngine;
 
 namespace Decisions
 {
@@ -11,5 +13,17 @@ namespace Decisions
         public string description;
 
         public DecisionData[] choices;
+        public EventType eventType;
+        
+        public List<string> requiredFlags;
+        public List<string> blockedFlags;
+        
+        [Header("Emergency")]
+        public ResourceType watchedResource;
+        public float emergencyThreshold;
+        public float cooldown = 60f;
+        
+        
+        [HideInInspector] public float lastTriggeredTime = -999f;
     }
 }

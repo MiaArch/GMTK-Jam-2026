@@ -16,6 +16,7 @@ namespace Dialogue
         [Header("Typewriter")]
         [TextArea]
         public List<String> dialogueLines;
+        private readonly Queue<List<string>> dialogueQueue = new();
         private int currentLine = 0;
         private bool isTyping;
 
@@ -49,10 +50,26 @@ namespace Dialogue
 
         public void ShowDialogue(List<string> text)
         {
-            DialogueManager.Instance.isDiaglogueActive = true;
+            if (text == null || text.Count == 0)
+                return;
+
+            // If a dialogue is already playing, queue this one.
+            if (DialogueManager.Instance.isDialogueActive)
+            {
+                dialogueQueue.Enqueue(new List<string>(text));
+                return;
+            }
+
+            StartDialogue(text);
+        }
+
+        private void StartDialogue(List<string> text)
+        {
+            DialogueManager.Instance.isDialogueActive = true;
             dialoguePanel.SetActive(true);
-            
+
             dialogueLines = text;
+            currentLine = 0;
 
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
@@ -75,16 +92,27 @@ namespace Dialogue
 
         public void HideDialogue()
         {
-            DialogueManager.Instance.isDiaglogueActive = false;
+            DialogueManager.Instance.isDialogueActive = false;
             dialoguePanel.SetActive(false);
 
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
+            if (dialogueQueue.Count > 0)
+            {
+                StartDialogue(dialogueQueue.Dequeue());
+                return;
+            }
+
+            typingCoroutine = null;
+            currentLine = 0;
+            isTyping = false;
+            
         }
 
         IEnumerator TypeText()
         {
             isTyping = true;
+            continueButton.SetActive(false);
             dialogueText.text = "";
 
             foreach (char letter in dialogueLines[currentLine])

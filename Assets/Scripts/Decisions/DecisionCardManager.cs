@@ -47,7 +47,7 @@ namespace Decisions
             ClearCards();
         }
 
-        private void ClearCards()
+        public void ClearCards()
         {
             foreach (DecisionCard card in activeCards)
             {

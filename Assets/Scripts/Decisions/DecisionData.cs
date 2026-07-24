@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Decisions
 {
@@ -9,6 +11,11 @@ namespace Decisions
         public string title;
         [TextArea(4, 8)]
         public string description;
+        
+        [Header("Dialogue")] 
+        public bool hasDialogue;
+
+        public List<String> dialogueLines;
 
         public DecisionEffect[] effects;
     }

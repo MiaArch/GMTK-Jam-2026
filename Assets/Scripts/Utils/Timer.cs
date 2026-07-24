@@ -1,4 +1,5 @@
 ﻿using Dialogue;
+using Villagers;
 
 namespace Utils
 {
@@ -9,16 +10,15 @@ namespace Utils
         [SerializeField] protected float duration;
         protected float elapsed;
 
-        public bool Finished => elapsed >= duration;
+        protected bool Finished => elapsed >= duration;
         public float Normalised => Mathf.Clamp01(elapsed / duration);
 
-        public void Tick(float deltaTime)
+        protected void Tick(float deltaTime)
         {
             // We may want to change this later so it pauses specific timers, but for now it's fine
-            if (DialogueManager.Instance.isDiaglogueActive != true)
-            {
-                elapsed += deltaTime;
-            }
+            if (DialogueManager.Instance.isDialogueActive) return;
+            if (GameEndings.Instance.hasEnded) return;
+            elapsed += deltaTime;
         }
 
         public virtual void Reset()

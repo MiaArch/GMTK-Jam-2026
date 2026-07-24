@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Dialogue;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -75,6 +76,10 @@ namespace Decisions
 
         public void SelectCard()
         {
+            if (decision.hasDialogue)
+            {
+                DialogueManager.Instance.AddDialogue(decision.dialogueLines);
+            }
             Debug.Log($"Selected: {decision.title}");
             DecisionCardManager.Instance.SelectChoice(decision);
         }

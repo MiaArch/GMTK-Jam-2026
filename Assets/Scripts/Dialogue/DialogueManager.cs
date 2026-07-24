@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Utils;
 
 namespace Dialogue
@@ -7,11 +8,11 @@ namespace Dialogue
     public class DialogueManager: Singleton<DialogueManager>
     {
         public DialogueUI dialogueUI;
-        public bool isDiaglogueActive;
+        public bool isDialogueActive;
 
         void Start()
         {
-            isDiaglogueActive = false;
+            isDialogueActive = false;
             
         }
 

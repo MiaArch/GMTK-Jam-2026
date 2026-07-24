@@ -22,6 +22,7 @@ namespace Villagers
         {
             if (population == 1000) populationText.text = population + " [MAX]";
             else populationText.text = population.ToString();
+            
         }
 
         public void AddPopulation(int amount)
@@ -37,9 +38,11 @@ namespace Villagers
 
         public void RemovePopulation(int amount)
         {
-            population = Mathf.Max(0, population - amount);
+            population = Mathf.Max(2, population - amount);
             populationText.text = population.ToString();
             UpdateDisplayPopulation();
+            
+            if (population <= 2) GameEndings.Instance.TriggerBadEnding();
         }
 
         private void UpdateDisplayPopulation()

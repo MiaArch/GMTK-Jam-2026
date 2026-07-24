@@ -1,43 +1,134 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dialogue;
+using Resource;
 using UnityEngine;
 using Utils;
 
 namespace Decisions
 {
-    public class EventTimer: Timer
+    public class EventTimer : Timer
     {
         public bool isInEvent;
-        [SerializeField] private List<DecisionEvent> events;
-        [SerializeField] private float firstEventOffset;
-        private int totalEventsOccurred;
 
-        public void Start()
+        [SerializeField] private List<DecisionEvent> events;
+        [SerializeField] private float firstEventOffset = 10f;
+        [SerializeField] private int recurringFrequency = 5;
+
+        private int currentStoryIndex;
+        private int storyEventsCompleted;
+
+        private void Start()
         {
             elapsed = firstEventOffset;
         }
 
-        public void Update()
+        private void Update()
         {
-            switch (Finished)
+            if (isInEvent)
+                return;
+            
+            
+            Tick(Time.deltaTime);
+            if (DialogueManager.Instance.isDialogueActive)
+                return;
+
+            if (!Finished)
+                return;
+
+            DecisionEvent next = GetNextEvent();
+
+            if (next != null)
+                TriggerEvent(next);
+        }
+
+        private DecisionEvent GetNextEvent()
+        {
+            foreach (DecisionEvent evt in events)
             {
-                case true when !isInEvent:
+                if (evt.eventType != EventType.Emergency)
+                    continue;
+
+                if (!CanTrigger(evt))
+                    continue;
+
+                if (Time.time < evt.lastTriggeredTime + evt.cooldown)
+                    continue;
+
+                float value = ResourceManager.Instance.GetAmount(evt.watchedResource);
+
+                if (value <= evt.emergencyThreshold)
                 {
-                    isInEvent = true;
-                    if (totalEventsOccurred == events.Count) return;
-                    DecisionCardManager.Instance.ShowEvent(events[totalEventsOccurred]);
-                    totalEventsOccurred++;
-                    break;
+                    evt.lastTriggeredTime = Time.time;
+                    return evt;
                 }
-                case false:
-                    Tick(Time.deltaTime);
-                    break;
             }
+            
+            if (storyEventsCompleted > 0 &&
+                storyEventsCompleted % recurringFrequency == 0)
+            {
+                foreach (DecisionEvent evt in events)
+                {
+                    if (evt.eventType != EventType.Recurring)
+                        continue;
+
+                    if (!CanTrigger(evt))
+                        continue;
+
+                    return evt;
+                }
+            }
+            
+            int storyCounter = 0;
+
+            foreach (DecisionEvent evt in events)
+            {
+                if (evt.eventType != EventType.Story)
+                    continue;
+
+                if (storyCounter++ != currentStoryIndex)
+                    continue;
+
+                if (!CanTrigger(evt))
+                    return null;
+
+                currentStoryIndex++;
+                storyEventsCompleted++;
+
+                return evt;
+            }
+
+            return null;
+        }
+
+        private bool CanTrigger(DecisionEvent evt)
+        {
+            foreach (String flag in evt.requiredFlags)
+            {
+                if (!DecisionFlags.Has(flag))
+                    return false;
+            }
+
+            foreach (String flag in evt.blockedFlags)
+            {
+                if (DecisionFlags.Has(flag))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private void TriggerEvent(DecisionEvent evt)
+        {
+            isInEvent = true;
+            DecisionCardManager.Instance.ShowEvent(evt);
+
+            Reset();
         }
 
         public override void Reset()
         {
-            elapsed = 0;
+            elapsed = 0f;
             isInEvent = false;
         }
     }
