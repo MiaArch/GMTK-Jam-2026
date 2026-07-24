@@ -8,10 +8,10 @@ namespace Resource
 {
     public class ResourceManager: Singleton<ResourceManager>
     {
-        private int woodCount = 100;
-        private int foodCount = 100;
-        private int goldCount = 100;
-        private int emotionCount = 100;
+        [SerializeField] private int woodCount = 100;
+        [SerializeField] private int foodCount = 100;
+        [SerializeField] private int goldCount = 100;
+        [SerializeField] private int emotionCount = 100;
         private int cluesCount = 0;
 
         private int maxFood = 9999;

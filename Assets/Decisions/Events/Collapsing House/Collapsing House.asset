@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: Collapsing House
+  m_EditorClassIdentifier: 
+  title: Collapsing House
+  description: A house is collapsing, what will we do about it?
+  choices:
+  - {fileID: 11400000, guid: 418d50ece60880f4b91fc07580a80e83, type: 2}
+  - {fileID: 11400000, guid: 966be38f062b5bd41acc18e6ae25133d, type: 2}
+  - {fileID: 11400000, guid: ccd61c1470f48494c8e40eca9e6101e0, type: 2}
+  eventType: 0
+  requiredFlags: []
+  blockedFlags: []
+  watchedResource: 0
+  emergencyThreshold: 0
+  cooldown: 60
+  lastTriggeredTime: -999

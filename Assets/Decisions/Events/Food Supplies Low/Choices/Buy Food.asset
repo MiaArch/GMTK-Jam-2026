@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Buy food
   description: What we don't have in food, we have in gold!
-  hasDialogue: 1
-  dialogueLines:
-  - Oh dear
+  hasDialogue: 0
+  dialogueLines: []
   effects:
   - {fileID: 11400000, guid: 1921e16a4ef4a114a843ad1237a6ffe8, type: 2}
   - {fileID: 11400000, guid: 648eb22373121c1458531a223316f64c, type: 2}

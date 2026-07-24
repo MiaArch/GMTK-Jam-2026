@@ -577,6 +577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e880fc2c7344b4881f1727c6a412e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodCount: 0
+  foodCount: 100
+  goldCount: 25
+  emotionCount: 100
   foodConsumedPerVillager: 0.01
   buildingMaterialText: {fileID: 1820871707}
   foodText: {fileID: 317348685}
@@ -1823,7 +1827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &805136984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2903,13 +2907,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864bd52969f8413cb3f17f9c782dc53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 16
+  duration: 10
   isInEvent: 0
   events:
+  - {fileID: 11400000, guid: 27e305121e0246842aae7184a95503e4, type: 2}
   - {fileID: 11400000, guid: 15f2442e9031b8245bf3e57ea3ed71d9, type: 2}
   - {fileID: 11400000, guid: 2564fec572c2b5e4e82bcf4dda9384fa, type: 2}
-  firstEventOffset: 10
-  recurringFrequency: 5
+  - {fileID: 11400000, guid: 8f0aafa90b0d8eb40b8f53aa8e71b981, type: 2}
+  - {fileID: 11400000, guid: 993ba5a8a77799e4499909a7df603b2b, type: 2}
+  firstEventOffset: 0
+  recurringFrequency: 4
 --- !u!4 &1133809168
 Transform:
   m_ObjectHideFlags: 0
@@ -2937,9 +2944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5ebe00686a4862bf518d86579dd0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2.5
+  duration: 1.5
   startDelay: 0
-  foodSurplusRequirement: 10
+  foodSurplusRequirement: 15
   emotionRequirement: 225
   goldRequirement: 250
   populationChangeText: {fileID: 1838464343}
@@ -2955,10 +2962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ce53c1f00480a95509b32d377ab68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2.5
+  duration: 1.5
   foodDrainText: {fileID: 947537722}
   emotionDrainText: {fileID: 660964765}
-  startDelay: 10
+  startDelay: 3
 --- !u!114 &1133809171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,7 +2978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9978d8be4234473b6401208718c04b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 3
   firstDialogue: Woah, did you see that? Our population just dropped!
 --- !u!1 &1155190363
 GameObject:
@@ -3944,7 +3951,7 @@ MonoBehaviour:
   - {fileID: 1046724788}
   - {fileID: 1703159148}
   populationText: {fileID: 1155190365}
-  population: 3
+  population: 100
   displayPopulation: 100
   maxDisplayedVillagers: 100
 --- !u!4 &1415458151

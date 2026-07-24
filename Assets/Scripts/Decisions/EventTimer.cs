@@ -15,12 +15,14 @@ namespace Decisions
         [SerializeField] private float firstEventOffset = 10f;
         [SerializeField] private int recurringFrequency = 5;
 
+        // private int totalStoryEvents = 10; // Change later
         private int currentStoryIndex;
         private int storyEventsCompleted;
 
         private void Start()
         {
             elapsed = firstEventOffset;
+            storyEventsCompleted = 0;
         }
 
         private void Update()
@@ -123,7 +125,7 @@ namespace Decisions
             isInEvent = true;
             DecisionCardManager.Instance.ShowEvent(evt);
 
-            Reset();
+            
         }
 
         public override void Reset()

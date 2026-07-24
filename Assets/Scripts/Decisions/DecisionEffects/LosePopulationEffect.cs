@@ -6,7 +6,6 @@ namespace Decisions.DecisionEffects
     [CreateAssetMenu(menuName = "Decision Effects/Lose Population")]
     public class LosePopulationEffect : DecisionEffect
     {
-        [SerializeField] private int amount;
 
         public override void Execute()
         {

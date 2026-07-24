@@ -375,6 +375,8 @@ MonoBehaviour:
   negativeEffectsImage: {fileID: 3512439314966307668}
   positiveToDisable: {fileID: 3535503259166471989}
   negativeToDisable: {fileID: 6009083049095565351}
+  cardBackground: {fileID: 1548840667506087297}
+  disabledTint: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
   VillagerSprite: {fileID: -7284959049437897134, guid: 4f519e7369d2cef4abc0e4637528d0ec, type: 3}
   WoodSprite: {fileID: -8730459109156560510, guid: d14773d9421a1fb4f8cefb8ed234432a, type: 3}
   FoodSprite: {fileID: 4980632016685634600, guid: 8e6fdfda5ded9be45a63448a4c6e251a, type: 3}
