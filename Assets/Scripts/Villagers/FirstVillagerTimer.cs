@@ -1,4 +1,5 @@
 ﻿using System;
+using Dialogue;
 using UnityEngine;
 using Utils;
 
@@ -6,18 +7,21 @@ namespace Villagers
 {
     public class FirstVillagerTimer: Timer
     {
-        private bool hasHappenned = false;
+        private bool hasHappened = false;
+        [TextArea]
+        [SerializeField] private String firstDialogue;
         public void Update()
         {
-            if (Finished && !hasHappenned)
+            if (Finished && !hasHappened)
             {
-                hasHappenned = true;
+                hasHappened = true;
                 VillagerManager.Instance.RemovePopulation(1);
+                DialogueManager.Instance.AddDialogue(firstDialogue);
                 //TODO: TRIGGER CUTSCENE STUFF TOO
             }
             else
             {
-                if (!hasHappenned)
+                if (!hasHappened)
                 {
                     Tick(Time.deltaTime);
                 }

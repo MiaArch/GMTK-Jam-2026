@@ -1,4 +1,6 @@
-﻿namespace Utils
+﻿using Dialogue;
+
+namespace Utils
 {
     using UnityEngine;
 
@@ -12,7 +14,11 @@
 
         public void Tick(float deltaTime)
         {
-            elapsed += deltaTime;
+            // We may want to change this later so it pauses specific timers, but for now it's fine
+            if (DialogueManager.Instance.isDiaglogueActive != true)
+            {
+                elapsed += deltaTime;
+            }
         }
 
         public virtual void Reset()
