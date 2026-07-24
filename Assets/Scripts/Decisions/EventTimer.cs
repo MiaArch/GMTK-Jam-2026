@@ -9,11 +9,12 @@ namespace Decisions
     {
         public bool isInEvent;
         [SerializeField] private List<DecisionEvent> events;
+        [SerializeField] private float firstEventOffset;
         private int totalEventsOccurred;
 
         public void Start()
         {
-            elapsed = 15f; //TODO: REMOVE MAGIC NUMBER WITH ACTUAL LOGIC
+            elapsed = firstEventOffset;
         }
 
         public void Update()

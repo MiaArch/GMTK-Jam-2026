@@ -1,18 +1,25 @@
 ﻿using TMPro;
 using UnityEngine;
 using Utils;
+using Villagers;
 
 
 namespace Resource
 {
     public class ResourceManager: Singleton<ResourceManager>
     {
-        private int buildingMaterialCount = 100;
+        private int woodCount = 100;
         private int foodCount = 100;
         private int goldCount = 100;
         private int emotionCount = 100;
         private int cluesCount = 0;
 
+        private int maxFood = 9999;
+        private int maxGold = 9999;
+        private int maxEmotion = 1000;
+        private int maxWood = 9999;
+
+        [SerializeField] public float foodConsumedPerVillager = 0.05f;
         [SerializeField] private TMP_Text buildingMaterialText;
         [SerializeField] private TMP_Text foodText;
         [SerializeField] private TMP_Text goldText;
@@ -23,32 +30,27 @@ namespace Resource
             UpdateUI();
         }
 
-        public void ConsumeFood()
+        public int ConsumeFood()
         {
-            //TODO: Revisit later
-            int population = Villagers.VillagerManager.Instance.population;
-            float populationRatio = population / 1000f;
-
-            float drain =
-                Mathf.Pow(populationRatio, 1.75f) * 10f;
-
-            foodCount -= Mathf.CeilToInt(drain);
-            foodCount = Mathf.Max(foodCount, 0);
-
+            int population = VillagerManager.Instance.population;
+            int foodToConsume = Mathf.Max(1, Mathf.FloorToInt(population * foodConsumedPerVillager));
+            foodCount = Mathf.Max(0, foodCount - foodToConsume);
             UpdateUI();
+            return foodToConsume;
+            
         }
         
         private void UpdateUI()
         {
-            buildingMaterialText.text = buildingMaterialCount.ToString();
-            foodText.text = foodCount.ToString();
-            goldText.text = goldCount.ToString();
-            emotionText.text = emotionCount.ToString();
+            buildingMaterialText.text = woodCount == maxWood ? woodCount + "[MAX]" : woodCount.ToString() ;
+            foodText.text = foodCount == maxFood ? foodCount + "[MAX]": foodCount.ToString();
+            goldText.text = goldCount == maxGold ? goldCount + "[MAX]" : goldCount.ToString();
+            emotionText.text = emotionCount == maxEmotion ? emotionCount + "[MAX]" : emotionCount.ToString();
         }
 
         public void AddFood(int amount)
         {
-            foodCount = Mathf.Min(foodCount + amount, 1000);
+            foodCount = Mathf.Min(foodCount + amount, maxFood);
             UpdateUI();
         }
 
@@ -60,19 +62,19 @@ namespace Resource
         
         public void AddWood(int amount)
         {
-            buildingMaterialCount = Mathf.Min(buildingMaterialCount + amount, 1000);
+            woodCount = Mathf.Min(woodCount + amount, maxWood);
             UpdateUI();
         }
 
         public void RemoveWood(int amount)
         {
-            buildingMaterialCount = Mathf.Max(0, buildingMaterialCount - amount);
+            woodCount = Mathf.Max(0, woodCount - amount);
             UpdateUI();
         }
 
         public void AddGold(int amount)
         {
-            goldCount = Mathf.Min(goldCount + amount, 1000);
+            goldCount = Mathf.Min(goldCount + amount, maxGold);
             UpdateUI();
         }
 
@@ -84,7 +86,7 @@ namespace Resource
         
         public void AddEmotion(int amount)
         {
-            emotionCount = Mathf.Min(emotionCount + amount, 1000);
+            emotionCount = Mathf.Min(emotionCount + amount, maxEmotion);
             UpdateUI();
         }
 
@@ -106,7 +108,7 @@ namespace Resource
                 case ResourceType.Food:
                     return foodCount;
                 case ResourceType.Wood:
-                    return buildingMaterialCount;
+                    return woodCount;
                 case ResourceType.Gold:
                     return goldCount;
                 case ResourceType.Emotion:

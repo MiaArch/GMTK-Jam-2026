@@ -4,7 +4,7 @@
 
     public abstract class Timer: MonoBehaviour
     {
-        [SerializeField] private float duration;
+        [SerializeField] protected float duration;
         protected float elapsed;
 
         public bool Finished => elapsed >= duration;
