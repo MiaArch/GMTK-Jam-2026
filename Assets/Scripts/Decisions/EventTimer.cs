@@ -4,6 +4,7 @@ using Dialogue;
 using Resource;
 using UnityEngine;
 using Utils;
+using Villagers;
 
 namespace Decisions
 {
@@ -43,6 +44,7 @@ namespace Decisions
 
             if (next != null)
                 TriggerEvent(next);
+            else GameEndings.Instance.DecideEnding();
         }
 
         private DecisionEvent GetNextEvent()
