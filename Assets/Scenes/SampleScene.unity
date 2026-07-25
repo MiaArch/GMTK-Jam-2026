@@ -581,6 +581,8 @@ MonoBehaviour:
   foodCount: 100
   goldCount: 25
   emotionCount: 100
+  woodPerSecond: 0
+  foodPerSecond: 0
   foodConsumedPerVillager: 0.01
   buildingMaterialText: {fileID: 1820871707}
   foodText: {fileID: 317348685}
@@ -2908,7 +2910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864bd52969f8413cb3f17f9c782dc53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 10
   isInEvent: 0
   events:
   - {fileID: 11400000, guid: 27e305121e0246842aae7184a95503e4, type: 2}
@@ -2918,6 +2920,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 993ba5a8a77799e4499909a7df603b2b, type: 2}
   - {fileID: 11400000, guid: 8a5389ddcdccbc8449925a8f8a9c1dc5, type: 2}
   - {fileID: 11400000, guid: 40177fe8be9d69640b7147278d2959d7, type: 2}
+  - {fileID: 11400000, guid: f494ed438fc6aef45a2054d2b38c1076, type: 2}
   firstEventOffset: 5
   recurringFrequency: 4
 --- !u!4 &1133809168
@@ -2949,7 +2952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1.5
   startDelay: 0
-  foodSurplusRequirement: 15
+  foodSurplusRequirement: 25
   emotionRequirement: 225
   goldRequirement: 250
   populationChangeText: {fileID: 1838464343}
@@ -2965,10 +2968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ce53c1f00480a95509b32d377ab68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1.5
+  duration: 1.25
   foodDrainText: {fileID: 947537722}
+  woodChangeText: {fileID: 1425990011}
   emotionDrainText: {fileID: 660964765}
   startDelay: 3
+  surplusFoodHappiness: 10
 --- !u!114 &1133809171
 MonoBehaviour:
   m_ObjectHideFlags: 0

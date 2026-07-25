@@ -63,7 +63,8 @@ namespace Villagers
                 foodScore * 0.45f +
                 emotionScore * 0.5f +
                 goldScore * 0.05f;
-            
+
+            if (foodRatio >= foodSurplusRequirement * 5) score += 0.1f;
             if (emotionCount >= emotionRequirement * 2.25) score += 0.1f;
             if (goldCount >= goldRequirement * 2) score += 0.1f;
             

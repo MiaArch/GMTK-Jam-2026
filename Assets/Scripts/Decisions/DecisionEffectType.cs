@@ -7,6 +7,8 @@
         Food,
         Gold,
         Emotion,
-        Clues
+        Clues,
+        Lumbermill,
+        Farm
     }
 }

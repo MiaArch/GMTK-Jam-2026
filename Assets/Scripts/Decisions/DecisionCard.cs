@@ -110,20 +110,28 @@ namespace Decisions
                     case DecisionEffectType.Clues:
                         if (effect.isPositive)
                         {
-                            // Probably check for plurals later
-                            effect.EffectDescription = "+ " + effect.amount + " Clues";
+                            effect.EffectDescription = "+" + effect.amount + " Clue";
                             positiveEffectsImage.sprite = ClueSprite;
                         }
                         else
                         {
-                            effect.EffectDescription = "- " + effect.amount + " Clues";
+                            effect.EffectDescription = "-" + effect.amount + " Clue";
                             negativeEffectsImage.sprite = ClueSprite;
                         }
+                        break;
+                    case DecisionEffectType.Lumbermill:
+                        effect.EffectDescription = "+" + effect.amount + " Materials /s";
+                        positiveEffectsImage.sprite = WoodSprite;
+                        break;
+                    case DecisionEffectType.Farm:
+                        effect.EffectDescription = "+" + effect.amount + " Food /s";
+                        positiveEffectsImage.sprite = FoodSprite;
                         break;
                     default:
                         if (effect.isPositive) positiveEffectsImage.sprite = VillagerSprite;
                         else negativeEffectsImage.sprite = VillagerSprite;
                         break;
+                    
                 }
                 if (effect.isPositive) positiveEffectsText.text += effect.EffectDescription + "\n";
                 else negativeEffectsText.text += effect.EffectDescription + "\n";

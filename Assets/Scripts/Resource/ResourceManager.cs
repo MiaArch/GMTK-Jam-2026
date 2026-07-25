@@ -8,16 +8,19 @@ namespace Resource
 {
     public class ResourceManager: Singleton<ResourceManager>
     {
-        [SerializeField] private int woodCount = 100;
-        [SerializeField] private int foodCount = 100;
-        [SerializeField] private int goldCount = 100;
-        [SerializeField] private int emotionCount = 100;
-        private int cluesCount = 0;
+        [SerializeField] private float woodCount = 100;
+        [SerializeField] private float foodCount = 100;
+        [SerializeField] private float goldCount = 100;
+        [SerializeField] private float emotionCount = 100;
+        private int cluesCount;
 
         private int maxFood = 9999;
         private int maxGold = 9999;
         private int maxEmotion = 1000;
         private int maxWood = 9999;
+
+        public int woodPerSecond;
+        public int foodPerSecond;
 
         [SerializeField] public float foodConsumedPerVillager = 0.05f;
         [SerializeField] private TMP_Text buildingMaterialText;
@@ -36,16 +39,30 @@ namespace Resource
             int foodToConsume = Mathf.Max(1, Mathf.FloorToInt(population * foodConsumedPerVillager));
             foodCount = Mathf.Max(0, foodCount - foodToConsume);
             UpdateUI();
+            
             return foodToConsume;
+            
+        }
+
+        public float[] GainResource(float duration)
+        {
+            float woodGain = woodPerSecond * duration;
+            float foodGain = foodPerSecond * duration;
+            woodCount = Mathf.Max(0, woodCount + woodGain);
+            foodCount = Mathf.Max(0, foodCount + foodGain);
+            UpdateUI();
+
+            return new[] { woodGain, foodGain };
             
         }
         
         private void UpdateUI()
         {
-            buildingMaterialText.text = woodCount == maxWood ? woodCount + "[MAX]" : woodCount.ToString() ;
-            foodText.text = foodCount == maxFood ? foodCount + "[MAX]": foodCount.ToString();
-            goldText.text = goldCount == maxGold ? goldCount + "[MAX]" : goldCount.ToString();
-            emotionText.text = emotionCount == maxEmotion ? emotionCount + "[MAX]" : emotionCount.ToString();
+            // ReSharper disable SpecifyACultureInStringConversionExplicitly
+            buildingMaterialText.text = woodCount >= maxWood ? woodCount + "[MAX]" : Mathf.FloorToInt(woodCount).ToString();
+            foodText.text = foodCount >= maxFood ? foodCount + "[MAX]": Mathf.FloorToInt(foodCount).ToString();
+            goldText.text = goldCount >= maxGold ? goldCount + "[MAX]" : Mathf.FloorToInt(goldCount).ToString();
+            emotionText.text = emotionCount >= maxEmotion ? emotionCount + "[MAX]" : Mathf.FloorToInt(emotionCount).ToString();
         }
 
         public void AddFood(int amount)
@@ -101,18 +118,28 @@ namespace Resource
             cluesCount += amount;
         }
 
+        public void AddFoodPerSecond(int amount)
+        {
+            foodPerSecond += amount;
+        }
+
+        public void AddWoodPerSecond(int amount)
+        {
+            woodPerSecond += amount;
+        }
+
         public int GetAmount(ResourceType resource)
         {
             switch (resource)
             {
                 case ResourceType.Food:
-                    return foodCount;
+                    return Mathf.FloorToInt(foodCount);
                 case ResourceType.Wood:
-                    return woodCount;
+                    return Mathf.FloorToInt(woodCount);
                 case ResourceType.Gold:
-                    return goldCount;
+                    return Mathf.FloorToInt(goldCount);
                 case ResourceType.Emotion:
-                    return emotionCount;
+                    return Mathf.FloorToInt(emotionCount);
                 case ResourceType.Clues:
                     return cluesCount;
                 default:

@@ -40,7 +40,6 @@ namespace Decisions
         {
             foreach (DecisionEffect effect in choice.effects)
             {
-                Debug.Log(effect.EffectDescription);
                 effect.Execute();
             }
 
