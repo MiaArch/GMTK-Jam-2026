@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cfc9054780d4b979d2584923c963de4, type: 3}
-  m_Name: 100 Food
+  m_Name: More Than 100 Food
   m_EditorClassIdentifier: 
   resource: 1
   minimumAmount: 100

@@ -1,5 +1,6 @@
 ﻿using Resource;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace NewsTicker.NewsConditions
 {
@@ -8,10 +9,14 @@ namespace NewsTicker.NewsConditions
     {
         public ResourceType resource;
         public int minimumAmount;
+        public bool moreThanEqualsTo = true;
 
         public override bool Evaluate()
         {
-            return ResourceManager.Instance.GetAmount(resource) >= minimumAmount;
+            if (moreThanEqualsTo) return ResourceManager.Instance.GetAmount(resource) >= minimumAmount;
+            
+            return ResourceManager.Instance.GetAmount(resource) < minimumAmount;
+
         }
     }
 }

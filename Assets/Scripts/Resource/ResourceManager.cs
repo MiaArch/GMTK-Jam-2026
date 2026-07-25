@@ -12,7 +12,7 @@ namespace Resource
         [SerializeField] private float foodCount = 100;
         [SerializeField] private float goldCount = 100;
         [SerializeField] private float emotionCount = 100;
-        private int cluesCount;
+        private int cluesCount = 0;
 
         private int maxFood = 9999;
         private int maxGold = 9999;

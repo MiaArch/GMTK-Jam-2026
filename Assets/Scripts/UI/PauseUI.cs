@@ -11,6 +11,7 @@ namespace UI
         
         public void TogglePaused()
         {
+            AudioManager.Instance.PlayButtonClick();
             isPaused = !isPaused;
 
             if (isPaused)

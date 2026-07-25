@@ -3,6 +3,7 @@ using Resource;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Decisions
 {
@@ -155,6 +156,7 @@ namespace Decisions
 
         public void SelectCard()
         {
+            AudioManager.Instance.PlayButtonClick();
             if (!canSelect)
                 return;
             

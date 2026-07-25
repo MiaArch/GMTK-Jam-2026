@@ -27,7 +27,8 @@ namespace Utils
 
         public void PlayButtonClick()
         {
-            sfxSource.pitch = CurrentPitch;
+            float basePitch = CurrentPitch;
+            sfxSource.pitch = basePitch * Random.Range(0.95f, 1.05f);
             sfxSource.PlayOneShot(UIButtonClick);
         }
 
