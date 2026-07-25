@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
+  m_Name: Villagers For Gold
+  m_EditorClassIdentifier: 
+  title: Villagers For Gold
+  description: Like "Cash For Gold", only more unethical
+  hasDialogue: 1
+  dialogueLines:
+  - I'm simply going to look the other direction
+  effects:
+  - {fileID: 11400000, guid: 9db72ab28b40f4243a37a98525e07622, type: 2}
+  - {fileID: 11400000, guid: fb46f2e2e4d93dc4e959ebf40087a68a, type: 2}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
+  m_Name: Gold Donation
+  m_EditorClassIdentifier: 
+  title: Gold Donation
+  description: We could buy a lot with this!
+  hasDialogue: 1
+  dialogueLines:
+  - You want to know why they gave you such a gift?
+  - Simple! You solved the housing problem before it got much worse...
+  - The villagers know what you do for them, even if they don't always show it
+  effects:
+  - {fileID: 11400000, guid: 9db72ab28b40f4243a37a98525e07622, type: 2}
+  - {fileID: 11400000, guid: d68a40d6689786940a32f085fc0550fa, type: 2}

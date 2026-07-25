@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Utils;
 
 namespace Dialogue
 {
@@ -19,6 +20,7 @@ namespace Dialogue
         private readonly Queue<List<string>> dialogueQueue = new();
         private int currentLine = 0;
         private bool isTyping;
+        [SerializeField] private AudioClip villagerNoise;
 
         public float typingSpeed = 0.04f;
 
@@ -106,6 +108,7 @@ namespace Dialogue
             typingCoroutine = null;
             currentLine = 0;
             isTyping = false;
+            AudioManager.Instance.StopSFX();
             
         }
 
@@ -114,6 +117,9 @@ namespace Dialogue
             isTyping = true;
             continueButton.SetActive(false);
             dialogueText.text = "";
+            AudioManager.Instance.LoopSFX();
+            AudioManager.Instance.PlaySFXWithPitchShifting(villagerNoise, 1.05f, 0.95f);
+            
 
             foreach (char letter in dialogueLines[currentLine])
             {
@@ -122,6 +128,7 @@ namespace Dialogue
             }
             continueButton.SetActive(true);
             isTyping = false;
+            AudioManager.Instance.StopSFX();
         }
     }
 }

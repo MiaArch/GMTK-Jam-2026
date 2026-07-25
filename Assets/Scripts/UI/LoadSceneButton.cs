@@ -9,6 +9,7 @@ namespace UI
 
         public void LoadScene()
         {
+            AudioManager.Instance.PlayButtonClick();
             Time.timeScale = 1f;
             SceneLoader.Instance.Load(sceneName);
         }

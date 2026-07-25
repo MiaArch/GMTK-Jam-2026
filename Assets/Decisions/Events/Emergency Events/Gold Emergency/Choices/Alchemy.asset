@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
-  m_Name: Gold Donation
+  m_Name: Alchemy
   m_EditorClassIdentifier: 
-  title: Prized Boar
-  description: We could buy a lot with this!
+  title: Alchemy
+  description: Practice a dark ritual
   hasDialogue: 1
   dialogueLines:
-  - You want to know why they gave you such a gift?
-  - Simple! You solved the housing problem before it got much worse...
-  - The villagers know what you do for them, even if they don't always show it
+  - How did you do that?
   effects:
   - {fileID: 11400000, guid: 9db72ab28b40f4243a37a98525e07622, type: 2}
-  - {fileID: 11400000, guid: d68a40d6689786940a32f085fc0550fa, type: 2}
+  - {fileID: 11400000, guid: 0a59c4a53ad8ac44d9c4ffb6dda14e85, type: 2}

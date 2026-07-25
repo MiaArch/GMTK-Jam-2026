@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: Food Emergency
+  m_EditorClassIdentifier: 
+  title: Food Emergency
+  description: 
+  choices:
+  - {fileID: 11400000, guid: 926d664482efda04c8dace7318dd4e73, type: 2}
+  - {fileID: 11400000, guid: 94d650491beb03e4e94a528fc5e54189, type: 2}
+  - {fileID: 11400000, guid: 3c0823ff991a86c4d8520d9389971885, type: 2}
+  eventType: 2
+  requiredFlags: []
+  blockedFlags: []
+  watchedResource: 1
+  emergencyThreshold: 30
+  cooldown: 60
+  lastTriggeredTime: -999

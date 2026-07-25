@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace UI
 {
@@ -9,6 +10,7 @@ namespace UI
 
         public void QuitToMenu()
         {
+            AudioManager.Instance.PlayButtonClick();
             Time.timeScale = 1f;
             SceneManager.LoadScene(menuScene);
         }

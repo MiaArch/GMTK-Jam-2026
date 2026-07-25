@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils;
 
 namespace UI
 {
@@ -6,11 +7,13 @@ namespace UI
     {
         public void Quit()
         {
+            AudioManager.Instance.PlayButtonClick();
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
             #else
                 Application.Quit();
             #endif
+            
         }
     }
 }

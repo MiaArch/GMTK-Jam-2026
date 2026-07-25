@@ -42,6 +42,7 @@ namespace Villagers
 
         private float score;
 
+        [SerializeField] private List<String> doomedEndingDialogueLines;
         [SerializeField] private List<String> badEndingDialogueLines;
         [SerializeField] private List<String> paranoiaEndingDialogueLines;
         [SerializeField] private List<String> survivalEndingDialogueLines;
@@ -60,6 +61,12 @@ namespace Villagers
         public void DecideEnding()
         {
             score = Mathf.FloorToInt(calculateScore());
+            if (score < 0)
+            {
+                TriggerDoomedEnding();
+                return;
+                // If someone gets this legitimately, I will question their intelligence
+            }
             if (ResourceManager.Instance.GetAmount(ResourceType.Clues) >= paranoiaCluesRequired)
             {
                 TriggerNoiaEnding();
@@ -70,6 +77,11 @@ namespace Villagers
                 TriggerSurvivalEnding();
             }
             else TriggerBestEnding();
+        }
+
+        public void TriggerDoomedEnding()
+        {
+            StartCoroutine(DoomedEndingRoutine());
         }
 
         public void TriggerNoiaEnding()
@@ -85,6 +97,21 @@ namespace Villagers
         public void TriggerBestEnding()
         {
             StartCoroutine(BestEndingRoutine());
+        }
+        
+        private IEnumerator DoomedEndingRoutine()
+        {
+            DialogueManager.Instance.AddDialogue(doomedEndingDialogueLines);
+            hasEnded = true;
+            DecisionCardManager.Instance.ClearCards();
+            
+            yield return new WaitUntil(() => !DialogueManager.Instance.isDialogueActive);
+
+            endingsPanel.SetActive(true);
+            
+            endingTitle.text = "Doomed Ending";
+            endingDescription.text = "You survived, but surely this will be the end for your village";
+            endingScore.text = "Score: " + score;
         }
 
         private IEnumerator BadEndingRoutine()

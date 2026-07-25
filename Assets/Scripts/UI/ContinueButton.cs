@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils;
 
 namespace UI
 {
@@ -6,7 +7,8 @@ namespace UI
     {
         public void Continue()
         {
-            PauseManager.Instance.SetPaused(false);
+            AudioManager.Instance.PlayButtonClick();
+            PauseUI.Instance.TogglePaused();
         }
     }
 }
