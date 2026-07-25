@@ -18,6 +18,7 @@ namespace Decisions
         // private int totalStoryEvents = 10; // Change later
         private int currentStoryIndex;
         private int storyEventsCompleted;
+        private bool lastEventRecurring;
 
         private void Start()
         {
@@ -62,12 +63,13 @@ namespace Decisions
                 if (value <= evt.emergencyThreshold)
                 {
                     evt.lastTriggeredTime = Time.time;
+                    lastEventRecurring = false;
                     return evt;
                 }
             }
             
             if (storyEventsCompleted > 0 &&
-                storyEventsCompleted % recurringFrequency == 0)
+                storyEventsCompleted % recurringFrequency == 0 && !lastEventRecurring)
             {
                 foreach (DecisionEvent evt in events)
                 {
@@ -76,7 +78,7 @@ namespace Decisions
 
                     if (!CanTrigger(evt))
                         continue;
-
+                    lastEventRecurring = true;
                     return evt;
                 }
             }
@@ -85,6 +87,7 @@ namespace Decisions
 
             foreach (DecisionEvent evt in events)
             {
+                Debug.Log($"Story index = {currentStoryIndex}, considering {storyCounter}: {evt.title}");
                 if (evt.eventType != EventType.Story)
                     continue;
 
@@ -92,10 +95,16 @@ namespace Decisions
                     continue;
 
                 if (!CanTrigger(evt))
-                    return null;
+                {
+                    Debug.Log($"Skipping story event: {evt.title}");
+                    currentStoryIndex++;
+                    continue;
+                }
+                    
 
                 currentStoryIndex++;
                 storyEventsCompleted++;
+                lastEventRecurring = false;
 
                 return evt;
             }
@@ -107,13 +116,13 @@ namespace Decisions
         {
             foreach (String flag in evt.requiredFlags)
             {
-                if (!DecisionFlags.Has(flag))
+                if (!DecisionFlags.Instance.Has(flag))
                     return false;
             }
 
             foreach (String flag in evt.blockedFlags)
             {
-                if (DecisionFlags.Has(flag))
+                if (DecisionFlags.Instance.Has(flag))
                     return false;
             }
 

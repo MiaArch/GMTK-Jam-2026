@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
-  m_Name: Ration
+  m_Name: Do Nothing
   m_EditorClassIdentifier: 
-  title: Ration Food
-  description: We have to make do with what we have
-  hasDialogue: 0
-  dialogueLines: []
+  title: Do Nothing
+  description: We have bigger problems to worry about
+  hasDialogue: 1
+  dialogueLines:
+  - The villagers won't like this
   effects:
-  - {fileID: 11400000, guid: 1cac8de1f3751b04396c5f3189d5d58e, type: 2}
-  - {fileID: 11400000, guid: 1921e16a4ef4a114a843ad1237a6ffe8, type: 2}
+  - {fileID: 11400000, guid: 0a59c4a53ad8ac44d9c4ffb6dda14e85, type: 2}
+  - {fileID: 11400000, guid: fb46f2e2e4d93dc4e959ebf40087a68a, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: House Collapsed
+  m_EditorClassIdentifier: 
+  title: House Collapsed
+  description: You could have prevented this
+  choices:
+  - {fileID: 11400000, guid: a903991793cd47f40a003b43b8dbfecd, type: 2}
+  - {fileID: 11400000, guid: 2a681a01d0424cd4fb13289befff2aef, type: 2}
+  eventType: 0
+  requiredFlags:
+  - CollapsedHouse
+  blockedFlags: []
+  watchedResource: 0
+  emergencyThreshold: 0
+  cooldown: 60
+  lastTriggeredTime: -999

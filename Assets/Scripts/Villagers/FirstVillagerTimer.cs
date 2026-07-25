@@ -10,7 +10,7 @@ namespace Villagers
     {
         private bool hasHappened = false;
         [TextArea]
-        [SerializeField] private string firstDialogue;
+        [SerializeField] private List<string> firstDialogue;
         public void Update()
         {
             if (Finished && !hasHappened)

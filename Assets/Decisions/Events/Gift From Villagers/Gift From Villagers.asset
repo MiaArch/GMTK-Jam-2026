@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: Gift From Villagers
+  m_EditorClassIdentifier: 
+  title: Gift From Villagers
+  description: You did a good deed solving that housing problem, the villagers want
+    to reward you
+  choices:
+  - {fileID: 11400000, guid: 8350cd3558ce66843a8ca16f08ed8f19, type: 2}
+  - {fileID: 11400000, guid: 784cba1503931914e94c04307e4f955d, type: 2}
+  eventType: 0
+  requiredFlags: []
+  blockedFlags:
+  - CollapsedHouse
+  watchedResource: 0
+  emergencyThreshold: 0
+  cooldown: 60
+  lastTriggeredTime: -999

@@ -7,7 +7,7 @@ namespace Decisions.DecisionEffects
     {
         public override void Execute()
         {
-            DecisionFlags.Set("CollapsedHouse");
+            DecisionFlags.Instance.Set("CollapsedHouse");
         }
     }
 }

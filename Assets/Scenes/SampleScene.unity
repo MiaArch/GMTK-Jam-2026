@@ -1236,9 +1236,9 @@ MonoBehaviour:
   m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.9
-  m_Color: {r: 0.62352943, g: 0.36293265, b: 0, a: 1}
-  m_Intensity: 1.5
+  m_FalloffIntensity: 0.85
+  m_Color: {r: 0.7075472, g: 0.41800442, b: 0.010012442, a: 1}
+  m_Intensity: 1.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -1261,8 +1261,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 9
-  m_PointLightOuterRadius: 30
+  m_PointLightInnerRadius: 6
+  m_PointLightOuterRadius: 25
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1282,7 +1282,7 @@ Transform:
   m_GameObject: {fileID: 619394800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 7.87, z: 0}
+  m_LocalPosition: {x: 0.15, y: 8.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2888,6 +2888,7 @@ GameObject:
   - component: {fileID: 1133809169}
   - component: {fileID: 1133809170}
   - component: {fileID: 1133809171}
+  - component: {fileID: 1133809172}
   m_Layer: 0
   m_Name: Timers
   m_TagString: Untagged
@@ -2907,7 +2908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864bd52969f8413cb3f17f9c782dc53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 3
   isInEvent: 0
   events:
   - {fileID: 11400000, guid: 27e305121e0246842aae7184a95503e4, type: 2}
@@ -2915,7 +2916,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2564fec572c2b5e4e82bcf4dda9384fa, type: 2}
   - {fileID: 11400000, guid: 8f0aafa90b0d8eb40b8f53aa8e71b981, type: 2}
   - {fileID: 11400000, guid: 993ba5a8a77799e4499909a7df603b2b, type: 2}
-  firstEventOffset: 0
+  - {fileID: 11400000, guid: 8a5389ddcdccbc8449925a8f8a9c1dc5, type: 2}
+  - {fileID: 11400000, guid: 40177fe8be9d69640b7147278d2959d7, type: 2}
+  firstEventOffset: 5
   recurringFrequency: 4
 --- !u!4 &1133809168
 Transform:
@@ -2979,7 +2982,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
-  firstDialogue: Woah, did you see that? Our population just dropped!
+  firstDialogue:
+  - Woah, did you see that? Our population just dropped!
+  - This village is in a bit of trouble. Our food is running out, we're poor and
+    have nothing to build with...
+  - Then, to make it worse, our villagers have started disappearing?!?
+  - So, it's up to you to save our village. I'll be here every step of the way, acting
+    as your loyal advisor!
+  - How do you save the village? By making the most important of decisions of course!
+  - Here's a decision now, decide which gift you would like for the village!
+--- !u!114 &1133809172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133809166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07ff1ee62bc4856a02750734aa65b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155190363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,7 +3397,7 @@ MonoBehaviour:
   endingsPanel: {fileID: 805136983}
   endingTitle: {fileID: 2093645973}
   endingDescription: {fileID: 2039520269}
-  paranoiaCluesRequired: 0
+  paranoiaCluesRequired: 5
   populationRequirementBestEnding: 0
   emotionRequirementBestEnding: 0
   badEndingDialogueLines:

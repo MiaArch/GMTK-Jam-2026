@@ -173,12 +173,6 @@ namespace Decisions
                 case DecisionEffectType.Gold:
                     resourceType = ResourceType.Gold;
                     break;
-                case DecisionEffectType.Emotion:
-                    resourceType = ResourceType.Emotion;
-                    break;
-                case DecisionEffectType.Clues:
-                    resourceType = ResourceType.Clues;
-                    break;
                 default:
                     return true;
             }

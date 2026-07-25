@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
-  m_Name: Ration
+  m_Name: Fix
   m_EditorClassIdentifier: 
-  title: Ration Food
-  description: We have to make do with what we have
-  hasDialogue: 0
-  dialogueLines: []
+  title: Fix
+  description: It's expensive, but we need to fix this mess
+  hasDialogue: 1
+  dialogueLines:
+  - You did the right thing, fixing this mess...
+  - Just a shame you didn't deal with this sooner
   effects:
-  - {fileID: 11400000, guid: 1cac8de1f3751b04396c5f3189d5d58e, type: 2}
-  - {fileID: 11400000, guid: 1921e16a4ef4a114a843ad1237a6ffe8, type: 2}
+  - {fileID: 11400000, guid: cd4ffd157c37b9b42aee0d10cb7983b0, type: 2}
+  - {fileID: 11400000, guid: ef1b894370c1b8746ab362e300485839, type: 2}
