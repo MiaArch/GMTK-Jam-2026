@@ -65,7 +65,6 @@ namespace Decisions
                 if (value <= evt.emergencyThreshold)
                 {
                     evt.lastTriggeredTime = Time.time;
-                    lastEventRecurring = false;
                     return evt;
                 }
             }

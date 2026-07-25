@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
+  m_Name: Evacuate Villagers
+  m_EditorClassIdentifier: 
+  title: Evacuate Villagers
+  description: Safety is our top priority, we can recover from this!
+  hasDialogue: 1
+  dialogueLines:
+  - Good job keeping everyone safe!
+  - Though, I wonder how this started in the first place?
+  effects:
+  - {fileID: 11400000, guid: dbfb9dbb7d83cd54eab0814c761b66fa, type: 2}
+  - {fileID: 11400000, guid: 1cac8de1f3751b04396c5f3189d5d58e, type: 2}

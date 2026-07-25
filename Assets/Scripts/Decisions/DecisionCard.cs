@@ -11,10 +11,9 @@ namespace Decisions
     {
         [SerializeField] private TMP_Text titleText;
         [SerializeField] private TMP_Text descriptionText;
-        [SerializeField] private TMP_Text positiveEffectsText;
-        [SerializeField] private TMP_Text negativeEffectsText;
-        [SerializeField] private Image positiveEffectsImage;
-        [SerializeField] private Image negativeEffectsImage;
+        [SerializeField] private Transform positiveEffectsContainer;
+        [SerializeField] private Transform negativeEffectsContainer;
+        [SerializeField] private GameObject effectPrefab;
 
         [SerializeField] private GameObject positiveToDisable;
         [SerializeField] private GameObject negativeToDisable;
@@ -36,119 +35,83 @@ namespace Decisions
         {
             decision = data;
             canSelect = true;
+
             foreach (var effect in data.effects)
             {
                 if (effect.isHidden) continue;
-                if (!effect.isPositive)
+
+                if (!effect.isPositive && !CanAfford(effect))
                 {
-                    if (!CanAfford(effect))
-                    {
-                        canSelect = false;
-                    }
+                    canSelect = false;
                 }
+
+                Sprite icon = null;
+
                 switch (effect.DecisionEffectType)
                 {
                     case DecisionEffectType.Population:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Villagers";
-                            positiveEffectsImage.sprite = VillagerSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Villagers";
-                            negativeEffectsImage.sprite = VillagerSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Villagers";
+                        icon = VillagerSprite;
                         break;
+
                     case DecisionEffectType.Wood:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Materials";
-                            positiveEffectsImage.sprite = WoodSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Materials";
-                            negativeEffectsImage.sprite = WoodSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Materials";
+                        icon = WoodSprite;
                         break;
+
                     case DecisionEffectType.Food:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Food";
-                            positiveEffectsImage.sprite = FoodSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Food";
-                            negativeEffectsImage.sprite = FoodSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Food";
+                        icon = FoodSprite;
                         break;
+
                     case DecisionEffectType.Gold:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Gold";
-                            positiveEffectsImage.sprite = GoldSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Gold";
-                            negativeEffectsImage.sprite = GoldSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Gold";
+                        icon = GoldSprite;
                         break;
+
                     case DecisionEffectType.Emotion:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Happiness";
-                            positiveEffectsImage.sprite = EmotionSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Happiness";
-                            negativeEffectsImage.sprite = EmotionSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Happiness";
+                        icon = EmotionSprite;
                         break;
+
                     case DecisionEffectType.Clues:
-                        if (effect.isPositive)
-                        {
-                            effect.EffectDescription = "+" + effect.amount + " Clue";
-                            positiveEffectsImage.sprite = ClueSprite;
-                        }
-                        else
-                        {
-                            effect.EffectDescription = "-" + effect.amount + " Clue";
-                            negativeEffectsImage.sprite = ClueSprite;
-                        }
+                        effect.EffectDescription = (effect.isPositive ? "+" : "-") + effect.amount + " Clue";
+                        icon = ClueSprite;
                         break;
+
                     case DecisionEffectType.Lumbermill:
                         effect.EffectDescription = "+" + effect.amount + " Materials /s";
-                        positiveEffectsImage.sprite = WoodSprite;
+                        icon = WoodSprite;
                         break;
+
                     case DecisionEffectType.Farm:
                         effect.EffectDescription = "+" + effect.amount + " Food /s";
-                        positiveEffectsImage.sprite = FoodSprite;
+                        icon = FoodSprite;
                         break;
-                    default:
-                        if (effect.isPositive) positiveEffectsImage.sprite = VillagerSprite;
-                        else negativeEffectsImage.sprite = VillagerSprite;
-                        break;
-                    
                 }
-                if (effect.isPositive) positiveEffectsText.text += effect.EffectDescription + "\n";
-                else negativeEffectsText.text += effect.EffectDescription + "\n";
+
+
+                GameObject row = Instantiate(effectPrefab);
+
+                row.transform.SetParent(
+                    effect.isPositive 
+                        ? positiveEffectsContainer 
+                        : negativeEffectsContainer,
+                    false
+                );
+
+                row.GetComponent<EffectRow>().Setup(
+                    icon,
+                    effect.EffectDescription,
+                    effect.isPositive
+                );
             }
 
-            if (positiveEffectsText.text == "") positiveToDisable.SetActive(false);
-            if (negativeEffectsText.text == "") negativeToDisable.SetActive(false);
-            
-            if (!canSelect)
-            {
-                cardBackground.color = disabledTint;
-            }
-            else
-            {
-                cardBackground.color = Color.white;
-            }
+
+            positiveToDisable.SetActive(positiveEffectsContainer.childCount > 0);
+            negativeToDisable.SetActive(negativeEffectsContainer.childCount > 0);
+
+            cardBackground.color = canSelect ? Color.white : disabledTint;
 
             titleText.text = data.title;
             descriptionText.text = data.description;

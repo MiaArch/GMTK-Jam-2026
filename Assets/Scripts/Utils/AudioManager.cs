@@ -1,5 +1,6 @@
 ﻿using Resource;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Utils
 {
@@ -19,6 +20,10 @@ namespace Utils
         {
             get
             {
+                if (SceneManager.GetActiveScene().buildIndex == 0)
+                {
+                    return 1f;
+                }
                 int clues = ResourceManager.Instance.GetAmount(ResourceType.Clues);
                 float t = Mathf.Clamp01((float)clues / cluesForMaxEffect);
                 return Mathf.Lerp(defaultPitch, minPitch, t);

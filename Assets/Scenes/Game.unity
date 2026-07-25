@@ -2811,7 +2811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90158b7c47d84712a74f34d9cdf22978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cluesForMaxIntensity: 10
+  cluesForMaxIntensity: 12
   maxAlpha: 0.9
   driftingUI:
   - {fileID: 1821523519}
@@ -2830,9 +2830,9 @@ MonoBehaviour:
   - {fileID: 1518137875}
   breath: {fileID: 8300000, guid: ca42c98958ecc4449904429ce6711fe0, type: 3}
   ghostAlpha: 0.25
-  ghostFadeTime: 0.1
-  ghostVisibleTime: 0.3
-  ghostCooldown: 7.5
+  ghostFadeTime: 0.15
+  ghostVisibleTime: 0.4
+  ghostCooldown: 7
 --- !u!114 &938657523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4150,22 +4150,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864bd52969f8413cb3f17f9c782dc53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 8
   isInEvent: 0
   events:
   - {fileID: 11400000, guid: f32be9d7dea05604b992ea0176daeffb, type: 2}
   - {fileID: 11400000, guid: 7f753dba12caaf44fb1743ba3e858f74, type: 2}
   - {fileID: 11400000, guid: 27e305121e0246842aae7184a95503e4, type: 2}
-  - {fileID: 11400000, guid: 48adbbe7227f12041b08be18d720e0cd, type: 2}
   - {fileID: 11400000, guid: 15f2442e9031b8245bf3e57ea3ed71d9, type: 2}
+  - {fileID: 11400000, guid: 48adbbe7227f12041b08be18d720e0cd, type: 2}
   - {fileID: 11400000, guid: 2564fec572c2b5e4e82bcf4dda9384fa, type: 2}
+  - {fileID: 11400000, guid: 2cd16071426fa9446ab4da7980cc09b9, type: 2}
   - {fileID: 11400000, guid: 8f0aafa90b0d8eb40b8f53aa8e71b981, type: 2}
   - {fileID: 11400000, guid: 993ba5a8a77799e4499909a7df603b2b, type: 2}
+  - {fileID: 11400000, guid: df69f09d76bb4c24a82f389dca86cb9c, type: 2}
   - {fileID: 11400000, guid: 8a5389ddcdccbc8449925a8f8a9c1dc5, type: 2}
   - {fileID: 11400000, guid: 40177fe8be9d69640b7147278d2959d7, type: 2}
+  - {fileID: 11400000, guid: 276faa7a99d907c40bec919427a22462, type: 2}
   - {fileID: 11400000, guid: f494ed438fc6aef45a2054d2b38c1076, type: 2}
-  firstEventOffset: 5
-  recurringFrequency: 4
+  - {fileID: 11400000, guid: a41080e5ab0ac74428a23f842f941376, type: 2}
+  - {fileID: 11400000, guid: 0784eb30613d2844ab5f51584fe4e016, type: 2}
+  - {fileID: 11400000, guid: 85e1270dd7792024aa3143350fefe2c5, type: 2}
+  firstEventOffset: 4
+  recurringFrequency: 5
 --- !u!4 &1133809168
 Transform:
   m_ObjectHideFlags: 0
@@ -4783,7 +4789,7 @@ MonoBehaviour:
   endingTitle: {fileID: 2093645973}
   endingDescription: {fileID: 2039520269}
   endingScore: {fileID: 121834296}
-  paranoiaCluesRequired: 10
+  paranoiaCluesRequired: 8
   populationRequirementBestEnding: 100
   emotionRequirementBestEnding: 150
   doomedEndingDialogueLines:

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4e839bb33e4db697c84d437ca56ed6, type: 3}
+  m_Name: Sell Excess
+  m_EditorClassIdentifier: 
+  title: Sell Excess
+  description: Keep a little, sell the rest
+  hasDialogue: 1
+  dialogueLines:
+  - A tidy profit is always welcome
+  effects:
+  - {fileID: 11400000, guid: 7b3ed72111feaa24582ec71550e1cdda, type: 2}
+  - {fileID: 11400000, guid: f1dfbf609a7bf5945a8bd9de2d77f6ac, type: 2}

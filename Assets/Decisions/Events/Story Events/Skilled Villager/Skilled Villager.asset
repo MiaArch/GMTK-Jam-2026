@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
+  m_Name: Skilled Villager
+  m_EditorClassIdentifier: 
+  title: Skilled Villager
+  description: 
+  choices:
+  - {fileID: 11400000, guid: 44a725e594d7db7499c7419dbf565c4e, type: 2}
+  - {fileID: 11400000, guid: f8f3c5678d580ce42814536c22518f79, type: 2}
+  - {fileID: 11400000, guid: 176f2cb0ebaf83c47aa2ae689ace40f6, type: 2}
+  eventType: 0
+  requiredFlags: []
+  blockedFlags: []
+  watchedResource: 0
+  emergencyThreshold: 0
+  cooldown: 60
+  lastTriggeredTime: -999
