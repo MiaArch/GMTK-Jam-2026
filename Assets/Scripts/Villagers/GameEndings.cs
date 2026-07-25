@@ -61,17 +61,18 @@ namespace Villagers
         public void DecideEnding()
         {
             score = Mathf.FloorToInt(calculateScore());
+            if (ResourceManager.Instance.GetAmount(ResourceType.Clues) >= paranoiaCluesRequired)
+            {
+                TriggerNoiaEnding();
+                return;
+            }
             if (score < 0)
             {
                 TriggerDoomedEnding();
                 return;
                 // If someone gets this legitimately, I will question their intelligence
             }
-            if (ResourceManager.Instance.GetAmount(ResourceType.Clues) >= paranoiaCluesRequired)
-            {
-                TriggerNoiaEnding();
-            }
-            else if (ResourceManager.Instance.GetAmount(ResourceType.Emotion) < emotionRequirementBestEnding 
+            if (ResourceManager.Instance.GetAmount(ResourceType.Emotion) < emotionRequirementBestEnding 
                      || VillagerManager.Instance.population < populationRequirementBestEnding)
             {
                 TriggerSurvivalEnding();
