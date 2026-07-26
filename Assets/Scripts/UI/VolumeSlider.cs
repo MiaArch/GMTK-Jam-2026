@@ -1,16 +1,26 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class VolumeSlider : MonoBehaviour
     {
-        [SerializeField] AudioMixer mixer;
+        [SerializeField] private AudioSource[] audioSource;
+        [SerializeField] private Slider _slider;
 
-        public void SetVolume(float value)
+        public void Start()
         {
-            mixer.SetFloat("MasterVolume",
-                Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f);
+            SetVolume();
+        }
+
+        public void SetVolume()
+        {
+            foreach (var audioS in audioSource)
+            {
+                audioS.volume = _slider.value;
+            }
         }
     }
 }

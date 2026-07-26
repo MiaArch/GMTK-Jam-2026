@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 
 namespace Utils
 {
-    public class AudioManager : PersistentSingleton<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField] AudioSource sfxSource;
         [SerializeField] AudioSource musicSource;
+        [SerializeField] private AudioSource ambientSFXSource; // Include in volume setting for SFX later :)
 
         [SerializeField] private AudioClip UIButtonClick;
         [Header("Distortion")]
@@ -73,6 +74,7 @@ namespace Utils
         
         private void Update()
         {
+            ambientSFXSource.pitch = CurrentPitch;
             musicSource.pitch = CurrentPitch;
         }
     }
