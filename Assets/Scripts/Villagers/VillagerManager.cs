@@ -13,13 +13,15 @@ namespace Villagers
         [SerializeField] private TMP_Text populationText;
 
         private List<GameObject> activeVillagers = new List<GameObject>();
-
+        private Camera _camera;
+        
         public int population;
         public int displayPopulation; 
         [SerializeField] private int maxDisplayedVillagers = 20; // Could be a setting in the menu so we don't see too many on screen
 
         public void Start()
         {
+            _camera = Camera.main;
             if (population == 1000) populationText.text = population + " [MAX]";
             else populationText.text = population.ToString();
             
@@ -62,6 +64,18 @@ namespace Villagers
             while (activeVillagers.Count > displayPopulation)
             {
                 DespawnVillager();
+            }
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector2 worldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
+
+                Collider2D hit = Physics2D.OverlapPoint(worldPoint);
+
+                if (hit != null)
+                {
+                    hit.GetComponent<VillagerAnim>()?.Speak();
+                }
             }
         }
 

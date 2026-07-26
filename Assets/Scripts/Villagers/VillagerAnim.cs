@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Villagers
 {
@@ -15,17 +18,23 @@ namespace Villagers
         public Animator villageAnimator;
         public Rigidbody2D rb;
         public SpriteRenderer SpriteRenderer;
+
+        [SerializeField] private List<String> dialogue = new List<string>();
         
         [Header("Movement")]
         public float moveSpeed = 2f;
         public Vector2 moveTimeRange = new Vector2(1f, 3f);
         public Vector2 idleTimeRange = new Vector2(1f, 2.5f);
         
+        private float randomMoveSpeed;
+        
         private Vector2 moveDirection;
         private bool isMoving;
         private static readonly int Speed = Animator.StringToHash("Speed");
         MoveState state;
         private Camera _camera;
+        
+        private DialogueBubble activeBubble;
 
         private void Awake()
         {
@@ -39,6 +48,8 @@ namespace Villagers
             {
                 SpriteRenderer = GetComponent<SpriteRenderer>();
             }
+
+            randomMoveSpeed = moveSpeed;
         }
 
         private void Start()
@@ -46,13 +57,22 @@ namespace Villagers
             _camera = Camera.main;
             StartCoroutine(WanderRoutine());
         }
+        
+        public void Speak()
+        {
+            if (activeBubble != null)
+                Destroy(activeBubble.gameObject);
+
+            string line = dialogue[Random.Range(0, dialogue.Count)];
+            activeBubble = BubbleSpawner.Instance.ShowBubble(transform, line);
+        }
 
         private void FixedUpdate()
         {
             switch (state)
             {
                 case MoveState.Wander:
-                    rb.linearVelocity = moveDirection * moveSpeed;
+                    rb.linearVelocity = moveDirection * randomMoveSpeed;
                     break;
 
                 case MoveState.Return:
@@ -60,7 +80,7 @@ namespace Villagers
                     Vector2 target = GetNearestPointOnScreen();
                     Vector2 dir = (target - rb.position).normalized;
 
-                    rb.linearVelocity = dir * moveSpeed;
+                    rb.linearVelocity = dir * randomMoveSpeed;
 
                     if (Vector2.Distance(rb.position, target) < 0.2f)
                     {
@@ -89,6 +109,7 @@ namespace Villagers
         {
             while (true)
             {
+                randomMoveSpeed = Random.Range(moveSpeed - 0.5f, moveSpeed + 0.5f);
                 moveDirection = Random.insideUnitCircle.normalized;
                 state = MoveState.Wander;
                 if (moveDirection.x < 0)
@@ -104,8 +125,8 @@ namespace Villagers
                 
                 if (!IsVisible())
                 {
+                    
                     state = MoveState.Return;
-
                     yield return new WaitUntil(() => state != MoveState.Return);
                 }
                 else
