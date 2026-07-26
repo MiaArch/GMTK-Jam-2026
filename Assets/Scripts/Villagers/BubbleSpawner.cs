@@ -14,7 +14,7 @@ namespace Villagers
             Instance = this;
         }
 
-        public DialogueBubble ShowBubble(Transform target, string text, float duration = 2.5f)
+        public DialogueBubble ShowBubble(Transform target, string text, float duration = 2.75f)
         {
             DialogueBubble bubble = Instantiate(bubblePrefab);
             bubble.Show(target, text, duration);

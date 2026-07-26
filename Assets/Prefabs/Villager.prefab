@@ -135,6 +135,32 @@ MonoBehaviour:
   - How are you!
   - Good day!
   - Did you hear about the count?
+  - Lovely weather today!
+  - I don't trust that advisor of yours
+  - My house is the best
+  - Who lights these torches each night?
+  - Grey hats are all the rage this season
+  - I love cats! Too bad there isn't any around here :(
+  - Someone told me [Press Spacebar to skip dialogue]. I don't know what that means
+  - Who's in charge of the news around here?
+  - Sometimes I think no one listens to what I have to say
+  - Wheat is popular in this village. In my old village we ate fresh game and jam!
+  - Cheeeese... Doesn't exist in this village
+  - Smile and wave
+  - '@%#- I STUBBED MY TOE!!'
+  - It feels like time is slower when you talk to your advisor
+  - Where am I going? Wouldn't you like to know weather boy...
+  - To be hurt is to be loved
+  - I've actually switched over to CO2 recently, better for the bones
+  - I love tea. I always want tea
+  - Hey!
+  - Yo!
+  - Ouch, why did you do that?
+  - Leave me alone
+  - Despite what everyone else says, I think you're pretty cool!
+  - Meow
+  - Woof
+  - Caesar said "Fvb hyl h ulyk" and the number 7. I hope he's ok...
   moveSpeed: 2
   moveTimeRange: {x: 1, y: 4}
   idleTimeRange: {x: 1, y: 2.5}

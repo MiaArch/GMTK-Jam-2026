@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebeade1d2124a3f888e133588e2b997, type: 3}
   m_Name: Mysterious Gift
   m_EditorClassIdentifier: 
-  title: Mysterious Gift
+  title: Anonymous Gift
   description: 
   choices:
   - {fileID: 11400000, guid: a9ea5f16a116a014ea72a3b84e522807, type: 2}

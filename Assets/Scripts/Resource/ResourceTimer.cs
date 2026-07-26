@@ -81,7 +81,7 @@ namespace Resource
 
             if (foodRatio >= surplusFoodHappiness *5)
             {
-                
+                emotionScore += 0.1f;
             }
             float emotionRate = (emotionScore - 0.6f) * 0.01f;
             

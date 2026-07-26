@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b232a974c464dd39f0596d0d05dae01, type: 3}
   m_Name: Lose 20 Food
   m_EditorClassIdentifier: 
-  isPositive: 1
+  isHidden: 0
+  isPositive: 0
   DecisionEffectType: 2
   amount: 20
   EffectDescription: 

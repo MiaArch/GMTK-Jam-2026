@@ -73,7 +73,7 @@ namespace Villagers
                 // If someone gets this legitimately, I will question their intelligence
             }
             if (ResourceManager.Instance.GetAmount(ResourceType.Emotion) < emotionRequirementBestEnding 
-                     || VillagerManager.Instance.population < populationRequirementBestEnding)
+                     || VillagerManager.Instance.population < populationRequirementBestEnding || ResourceManager.Instance.GetAmount(ResourceType.Clues) > 3)
             {
                 TriggerSurvivalEnding();
             }
@@ -202,8 +202,8 @@ namespace Villagers
                 (goldScore * 3000f) +
                 (emotionScore * 5000f) +
                 (populationScore * 5000f) +
-                (woodScore * 500f) -
-                (cluePenalty * 500f);
+                (woodScore * 1000f) -
+                (cluePenalty * 250f);
 
             Debug.Log($"Final Score: {score}");
             return score;

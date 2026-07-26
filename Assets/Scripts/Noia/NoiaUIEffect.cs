@@ -52,7 +52,7 @@ namespace Noia
             UpdateVignette(intensity);
             UpdateDrift(intensity);
             
-            if (clues >= cluesForMaxIntensity / 3 && !ghostActive && ghostImages.Count != 0)
+            if (clues >= 3 && !ghostActive && ghostImages.Count != 0)
             {
                 ghostActive = true;
                 StartCoroutine(FlashGhost());

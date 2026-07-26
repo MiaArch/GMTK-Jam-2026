@@ -3423,7 +3423,7 @@ MonoBehaviour:
   continueButton: {fileID: 20933291}
   dialogueLines: []
   villagerNoise: {fileID: 8300000, guid: c7e8514927793e54aa9da8edfb01215d, type: 3}
-  typingSpeed: 0.04
+  typingSpeed: 0.038
 --- !u!114 &897600699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3752,8 +3752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90158b7c47d84712a74f34d9cdf22978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cluesForMaxIntensity: 12
-  maxAlpha: 0.9
+  cluesForMaxIntensity: 14
+  maxAlpha: 0.95
   driftingUI:
   - {fileID: 1821523519}
   - {fileID: 1097831674}
@@ -3762,8 +3762,8 @@ MonoBehaviour:
   - {fileID: 975633445}
   - {fileID: 1043252195}
   - {fileID: 1518137872}
-  maxDrift: 10
-  driftSpeed: 0.5
+  maxDrift: 15
+  driftSpeed: 0.6
   ghostImages:
   - {fileID: 1126256610}
   - {fileID: 975633448}
@@ -3772,7 +3772,7 @@ MonoBehaviour:
   breath: {fileID: 8300000, guid: ca42c98958ecc4449904429ce6711fe0, type: 3}
   ghostAlpha: 0.25
   ghostFadeTime: 0.15
-  ghostVisibleTime: 0.4
+  ghostVisibleTime: 0.45
   ghostCooldown: 7
 --- !u!114 &938657523
 MonoBehaviour:
@@ -4191,7 +4191,7 @@ MonoBehaviour:
   startOffset: 5
   endOffset: 400
   newsItems:
-  - headline: Plenty food to go around
+  - headline: Plenty food to go around, says local villager
     weight: 0
     conditions:
     - {fileID: 11400000, guid: 85ef668393955da48aac523721e7be26, type: 2}
@@ -4217,7 +4217,7 @@ MonoBehaviour:
     weight: 0
     conditions:
     - {fileID: 11400000, guid: 9090fde443d78b143924de61429d6a85, type: 2}
-  - headline: Grey hats are in season, brown hats are so last year
+  - headline: Grey hats are in season, brown hats are so last year!
     weight: 0
     conditions: []
   - headline: Wheats and meats voted top food choices
@@ -4227,6 +4227,37 @@ MonoBehaviour:
     weight: 0
     conditions: []
   - headline: COUNT DOWN - Vampire diagnosed with depression?
+    weight: 0
+    conditions: []
+  - headline: Village torches - Who lights them? - More at 10!
+    weight: 0
+    conditions: []
+  - headline: Mysterious letters "GMTK" Graffiti Appears. What could it mean?
+    weight: 0
+    conditions: []
+  - headline: Research shows that extreme stress may lead to hallucinations
+    weight: 0
+    conditions: []
+  - headline: Too many distractions? - No, says news writer
+    weight: 0
+    conditions: []
+  - headline: 30 Frames Per Second - Carpenter Breaks World Record
+    weight: 0
+    conditions: []
+  - headline: Who has the best house in the village? Asked Literally No one
+    weight: 0
+    conditions: []
+  - headline: If you enjoyed this game, check out my others! --- WHO LET YOU IN HERE?!?
+    weight: 0
+    conditions: []
+  - headline: Counting down called "Too Negative" by some, called "Basic Maths" by
+      nerds
+    weight: 0
+    conditions: []
+  - headline: Seven Ate Nine - More shocking news at 10!
+    weight: 0
+    conditions: []
+  - headline: Count Your Steps - Running Around Voted Activity of the Year
     weight: 0
     conditions: []
 --- !u!1 &1003781567
@@ -4966,7 +4997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ce53c1f00480a95509b32d377ab68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1.25
+  duration: 1
   foodDrainText: {fileID: 947537722}
   woodChangeText: {fileID: 1425990011}
   emotionDrainText: {fileID: 660964765}
@@ -5661,7 +5692,7 @@ MonoBehaviour:
   populationRequirementBestEnding: 100
   emotionRequirementBestEnding: 150
   doomedEndingDialogueLines:
-  - Against all odd, you technically cleared all the obstacles in your way...
+  - Against all odds, you technically cleared all the obstacles in your way...
   - But this is just... Horrible
   - This village will die
   - Maybe not now
@@ -5672,13 +5703,19 @@ MonoBehaviour:
   - Goodbye
   badEndingDialogueLines:
   - Welp, guess this is it. Good job...
+  - ...
   - You are hopeless.
   paranoiaEndingDialogueLines:
-  - What have you done?!?
-  - These were your people?!?
-  - And you gave them up so easily...
-  - In pursuit of information that served you no purpose!
-  - This village is doomed in your care...
+  - Your people cannot bare to see you like this any longer
+  - And they will not survive under your leadership
+  - You just cannot stop searching for a mystery that doesn't exist
+  - Even at the cost of your own village
+  - It's gotten so bad...
+  - That you started running around, claiming to see things
+  - Scaring everyone...
+  - You should take a break...
+  - Let someone else take over...
+  - It's for the best
   survivalEndingDialogueLines:
   - This village will survive just fine
   - But this is it for me. I must invest my time elsewhere
